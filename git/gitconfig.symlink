@@ -67,6 +67,7 @@
     dk = diff --check
     dp = diff --patience
     dck = diff --cached --check
+    dnnr = diff-tree --no-commit-id --name-only -r
     #----------------------------------------------#
     f = fetch
     fo = fetch origin
