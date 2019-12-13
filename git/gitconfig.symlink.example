@@ -1,10 +1,10 @@
 [user]
-	name = AUTHORNAME
-	email = AUTHOREMAIL
+    name = AUTHORNAME
+    email = AUTHOREMAIL
 [core]
     editor = emacs -nw
 [credential]
-	helper = cache
+    helper = cache
 [difftool "kdiff3"]
     path = /usr/local/bin/kdiff3
     trustExitCode = false
@@ -20,7 +20,7 @@
 [merge]
     tool = kdiff3
 [push]
-		default = simple
+    default = simple
 [color "branch"]
     current = yellow bold
     local = green bold
@@ -67,6 +67,7 @@
     dk = diff --check
     dp = diff --patience
     dck = diff --cached --check
+    dnnr = diff-tree --no-commit-id --name-only -r
     #----------------------------------------------#
     f = fetch
     fo = fetch origin
