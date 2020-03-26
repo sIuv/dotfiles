@@ -81,6 +81,9 @@
 
 (show-paren-mode 1)
 
+;; Override selected region with yanking
+(delete-selection-mode 1)
+
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 

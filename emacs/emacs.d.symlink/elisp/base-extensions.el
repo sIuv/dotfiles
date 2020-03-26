@@ -76,7 +76,7 @@
 
 (use-package magit
   :config
-  
+
   :bind
   ;; Magic
   ("C-x g s" . magit-status)
@@ -131,7 +131,7 @@
   :config
   (setq projectile-known-projects-file
         (expand-file-name "projectile-bookmarks.eld" temp-dir))
-  
+
   (projectile-global-mode))
 
 (use-package recentf
