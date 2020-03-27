@@ -8,3 +8,5 @@ cd
 git clone git@github.com:sIuv/dotfiles.git .dotfiles
 .dotfiles/script/bootstrap.sh
 ```
+
+Add any local changes to ~/.localrc

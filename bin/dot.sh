@@ -41,7 +41,10 @@ done
 export ZSH=$HOME/.dotfiles
 
 # Set macOS defaults
-$ZSH/macos/set-defaults.sh
+if [ "$(uname -s)" == "Darwin" ]
+then
+    $ZSH/macos/set-defaults.sh
+fi
 
 # Install homebrew
 $ZSH/homebrew/install.sh 2>&1
@@ -49,7 +52,9 @@ $ZSH/homebrew/install.sh 2>&1
 # Upgrade homebrew
 echo "› brew update"
 brew update
+echo "› brew install cask"
+brew install cask
 
-# Install software
-echo "› $ZSH/script/install_.sh"
-$ZSH/script/install_.sh
+# Install software (run all dotfiles installers)
+echo "› $ZSH/script/install_dependecies.sh"
+$ZSH/script/install_dependecies.sh
