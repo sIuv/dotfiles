@@ -168,9 +168,9 @@
   :config
   (yas-global-mode 1))
 
-;;(use-package github-notifier
-;;  :config
-;;  (customize-save-variable 'github-notifier-token "<token>")
-;;  (github-notifier-mode 1))
+(use-package github-notifier
+  :config
+  (customize-save-variable 'github-notifier-token "547fe911a9d8f8c7aba20e2f5a704ed5f54aa747")
+  (github-notifier-mode 1))
 
 (provide 'base-extensions)
