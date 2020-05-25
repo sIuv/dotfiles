@@ -8,8 +8,8 @@
       '(("IN-PROGRESS" . "yellow")("WAITING" . "orange")("UPCOMING" . "deep sky blue")))
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "WAITING" "UPCOMING" "DONE")))
-;;(setq org-default-notes-file "/home/User/Documents/todo.org"
-;;      initial-buffer-choice org-default-notes-file)
+(setq org-default-notes-file "~/org-files/todo.org"
+      initial-buffer-choice org-default-notes-file)
 (org-babel-do-load-languages
   'org-babel-load-languages
    '((ditaa . t))) ;; this line activates ditaa

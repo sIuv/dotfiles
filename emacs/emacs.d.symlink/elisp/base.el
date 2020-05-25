@@ -23,6 +23,7 @@
 (set-selection-coding-system 'utf-8)   ; please
 (prefer-coding-system        'utf-8)   ; with sugar on top
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+(setq-default buffer-file-coding-system 'utf-8-unix)
 
 ;; Emacs customizations
 (setq confirm-kill-emacs                  'y-or-n-p
@@ -72,6 +73,14 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
 
+;; Calendar
+;; use yyyy-mm-dd
+(setq european-calendar-style t)
+;; use 24h
+(setq display-time-day-and-date t
+display-time-24hr-format t)
+(display-time)
+
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
@@ -86,6 +95,9 @@
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Start server
+(server-start)
 
 (provide 'base)
 ;;; base ends here
