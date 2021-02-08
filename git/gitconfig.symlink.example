@@ -156,6 +156,9 @@
     sp = stash pop
     ss = stash save
     sw = stash show
+	#----------------------------------------------#
+	subsyn = submodule sync --recursive
+	subupd = submodule update --init --recursive
     #----------------------------------------------#
     w = show
     wp = show -p
