@@ -17,6 +17,7 @@ then
     elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
     then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+        echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.localrc
     fi
 
 fi
