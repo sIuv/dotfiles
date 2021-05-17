@@ -68,6 +68,7 @@
     dp = diff --patience
     dck = diff --cached --check
     dnnr = diff-tree --no-commit-id --name-only -r
+    dno = diff --name-only
     #----------------------------------------------#
     f = fetch
     fo = fetch origin
@@ -79,6 +80,7 @@
     #----------------------------------------------#
     g = grep -p
     #----------------------------------------------#
+    lwc = log --raw --no-merges
     l = log --oneline
     lg = log --oneline --graph --decorate
     ls = ls-files
@@ -183,6 +185,12 @@
     human = name-rev --name-only --refs=refs/heads/*
     serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
     snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
-    subsu = !git subsyn && git subupd
+    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d"
+    subsu = "!git subsyn && git subupd"
     uberpull = "!git pull && git fetch --all && git subupd && git gc && git prune"
+    uberrebase = "!git pull --rebase && git fetch --all && git subupd && git gc && git prune"
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
