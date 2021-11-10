@@ -1,7 +1,6 @@
-(package-initialize)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/")
-             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+         '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -97,7 +96,8 @@ display-time-24hr-format t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Start server
-(server-start)
+(load "server")
+(unless (server-running-p) (server-start))
 
 (provide 'base)
 ;;; base ends here
