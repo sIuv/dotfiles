@@ -36,7 +36,7 @@
 
 (require 'lang-haskell)
 
-(require 'lang-elixir)
+;(require 'lang-elixir)
 
 (require 'lang-rust)
 
@@ -45,3 +45,5 @@
 (require 'lang-c)
 
 (require 'lang-org)
+
+(require 'lang-java)

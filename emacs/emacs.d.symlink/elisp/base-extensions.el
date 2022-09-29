@@ -128,11 +128,12 @@
 (use-package page-break-lines)
 
 (use-package projectile
+  :ensure t
+  :init (projectile-mode +1)
   :config
   (setq projectile-known-projects-file
         (expand-file-name "projectile-bookmarks.eld" temp-dir))
-
-  (projectile-global-mode))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package recentf
   :config

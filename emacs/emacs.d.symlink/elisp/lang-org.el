@@ -2,7 +2,9 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cn" 'org-capture)
 (global-font-lock-mode 1)
+(setq org-startup-folded t)
 (setq org-use-fast-todo-selection t)
 (setq org-log-done t)
 (setq org-todo-keyword-faces
@@ -18,7 +20,8 @@
    '((ditaa . t))) ;; this line activates ditaa
 
 
-(defvar my/org-meeting-template "** Meeting about %^{something}
+(defvar my/org-meeting-template "** TODO Meeting about %^{something}
+CREATED: %<%Y-%m-%d %H:%M>
 SCHEDULED: %(org-insert-time-stamp (org-read-date nil t nil))
 
 *Attendees:*
@@ -37,7 +40,8 @@ SCHEDULED: %(org-insert-time-stamp (org-read-date nil t nil))
 " "Meeting Template")
 
 
-(defvar my/org-jenkins-template "** Jenkins check [/]
+(defvar my/org-jenkins-template "** TODO Jenkins check %<%Y-%m-%d %H:%M> [/]
+CREATED: %<%Y-%m-%d %H:%M>
 SCHEDULED: %(org-insert-time-stamp (org-read-date nil t nil))
 
 - [ ] Job 1
