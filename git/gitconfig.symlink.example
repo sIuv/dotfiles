@@ -3,6 +3,8 @@
     email = AUTHOREMAIL
 [core]
     editor = emacs -nw
+    autocrlf = false
+    eol = lf
 [credential]
     helper = cache
 [difftool "kdiff3"]
@@ -50,6 +52,7 @@
     ba = branch -a
     bd = branch -d
     br = branch -r
+    bv = branch -avv
     #----------------------------------------------#
     c = commit
     ca = commit -a
@@ -73,6 +76,7 @@
     f = fetch
     fo = fetch origin
     fu = fetch upstream
+    fap = fetch --all --prune
     #----------------------------------------------#
     fp = format-patch
     #----------------------------------------------#
@@ -93,6 +97,11 @@
     #----------------------------------------------#
     o = checkout
     ob = checkout -b
+    obr = "!f() { git checkout -b $1; git push --set-upstream origin $1; }; f"
+    obf = "!f() { git checkout -b feature/$1; }; f"
+    obb = "!f() { git checkout -b bugfix/$1; }; f"
+    obh = "!f() { git checkout -b hotfix/$1; }; f"
+    obt = "!f() { git checkout -b test/$1; }; f"
     #----------------------------------------------#
     pr = prune -v
     #----------------------------------------------#
@@ -113,11 +122,11 @@
     plp = pull upstream
     plom = pull origin master
     plpm = pull upstream master
-    pb = pull --rebase
-    pbo = pull --rebase origin
-    pbp = pull --rebase upstream
-    pbom = pull --rebase origin master
-    pbpm = pull --rebase upstream master
+    plr = pull --rebase
+    plro = pull --rebase origin
+    plrp = pull --rebase upstream
+    plrom = pull --rebase origin master
+    plrpm = pull --rebase upstream master
     #----------------------------------------------#
     rb = rebase
     rba = rebase --abort
@@ -185,10 +194,10 @@
     human = name-rev --name-only --refs=refs/heads/*
     serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
     snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d"
+    cleanup = "!git branch --merged | grep  -v '\\*\\|main\\|release' | xargs -n 1 -r git branch -d"
     subsu = "!git subsyn && git subupd"
-    uberpull = "!git pull && git fetch --all && git subsyn && git subupd && git gc && git prune"
-    uberrebase = "!git pull --rebase && git fetch --all && git subsyn && git subupd && git gc && git prune"
+    uberpull = "!git pull --rebase && git fetch --all --prune && git subsyn && git subupd && git gc && git prune"
+    mvbranch = "!moveit() { git branch -m $1 $2; git push origin :$1; git push --set-upstream origin $2; }; moveit"
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
